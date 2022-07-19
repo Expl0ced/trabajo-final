@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Numero Pokedex</th>
+            <th scope="col">Clasificacion</th>
+            <th scope="col">Tipo 1</th>
+            <th scope="col">Tipo 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for poke in pokemon %}
+            <th scope="row">{{poke.Nombre}}</th>
+            <th scope="row">{{poke.Numero_Pokedex}}</th>
+            <th scope="row">{{poke.Clasificacion}}</th>
+            <th scope="row">{{poke.Tipo_1}}</th>
+            <th scope="row">{{poke.Tipo_2}}</th>
+
+        {% endfor %}
+        <tr>
+            <th scope="row"></th>
+        </tr>
+    </tbody>
+</table>
+
+
+{% endblock %}
