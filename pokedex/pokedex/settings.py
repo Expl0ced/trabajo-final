@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #aplicaciones locales
-    'neodex'
+    'apps.neodex'
     #aplicaciones de terceros
     # 'import_export',
 ]
