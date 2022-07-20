@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from neodex.HomeVIew import HomeView
+from neodex.views import FormularioPokemonView
 
 urlpatterns = [
     # path("neodex/", include('neodex.urls')),  
-    # path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
     path('',HomeView.home, name='home'),
     path('pagina1/',HomeView.pagina1, name='pagina1'),
     path('pagina2/<int:parametro1>',HomeView.pagina2, name='pagina2'),
     path('pagina3/<int:parametro1>/<int:parametro2>',HomeView.pagina3, name='pagina3'),
-    path('formulario/', HomeView.formulario, name='formulario')
+    path('formulario/', HomeView.formulario, name='formulario'),
+    path('ListaPokemon/', HomeView.listapoke, name='ListaPokemon'),
+    path('prototipo/', HomeView.nosexd, name='prototipo'),
+    path('trainers/', FormularioPokemonView, name='trainers')
 
 ]

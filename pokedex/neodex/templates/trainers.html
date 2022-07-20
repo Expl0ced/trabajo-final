@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="static/css/bootstrap.css">
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Lista
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if trainers %}
+            {% for t in entrenador %}
+            <tr>
+                <td>
+                    {{t.first_name}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <h1>No hay registros</h1>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+
+
+{% endblock %}

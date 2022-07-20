@@ -1,5 +1,8 @@
 {% extends 'index.html' %}
-
+{% block head %}
+<link rel="stylesheet" href="static/css/bootstrap.css">
+{% endblock %}
+{% block title %}Lista Pokemon{% endblock %}
 {% block content %}
 <table class="table table-striped">
     <thead>
@@ -13,11 +16,11 @@
     </thead>
     <tbody>
         {% for poke in pokemon %}
-            <th scope="row">{{poke.Nombre}}</th>
-            <th scope="row">{{poke.Numero_Pokedex}}</th>
-            <th scope="row">{{poke.Clasificacion}}</th>
-            <th scope="row">{{poke.Tipo_1}}</th>
-            <th scope="row">{{poke.Tipo_2}}</th>
+            <td scope="row">{{poke.Nombre}}</th>
+            <td scope="row">{{poke.Numero_Pokedex}}</th>
+            <td scope="row">{{poke.Clasificacion}}</th>
+            <td scope="row">{{poke.Tipo_1}}</th>
+            <td scope="row">{{poke.Tipo_2}}</th>
 
         {% endfor %}
         <tr>

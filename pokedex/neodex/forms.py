@@ -1,8 +1,8 @@
 from django import forms
-from .models import pokemon
+from .models import pokemon, Trainer
 
 class FormularioPokemon(forms.ModelForm):
     class Meta:
-        model = pokemon
+        model = Trainer
         fields = '__all__'
-        widgets = {'Peso': forms.FloatField(attrs={'type':'float'})}
+        widgets = {'fist_name': forms.CharField(attrs={'type':'char'})}

@@ -18,7 +18,18 @@ class HomeView():
     def pagina3(self, parametro1, parametro2):
         return HttpResponse('Hola desde otra ruta con 2 parametros ' +str(parametro1)+' - '+str(parametro2))
 
-
     def formulario(self):
         plantilla=get_template('formulario.html')
         return HttpResponse(plantilla.render())
+
+    def listapoke(self):
+        plantilla=get_template('ListaPokemon.html')
+        return HttpResponse(plantilla.render())
+
+    def nosexd(self):
+        plantilla=get_template('aaaaa.html')
+        return HttpResponse(plantilla.render())
+
+    def entrenadores(self):
+        plantilla=get_template('trainers.html')
+        return(HttpResponse(plantilla.render()))
