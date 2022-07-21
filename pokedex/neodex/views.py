@@ -6,20 +6,6 @@ from neodex.forms import FormularioPokemon
 from .models import pokemon, Trainer
 
 # Create your views here.
-
-def index(request):
-    pass 
-
-class HomeView():
-
-    def home(self):
-        plantilla=get_template('index.html')
-        return(HttpResponse(plantilla.render()))
-
-    def nosexd(request):
-        poke=pokemon.objects.all()
-        return render(request, 'aaaaa.html', {"pokemon":poke})
-
 class FormularioPokemonView(HttpRequest):
     def index(request):
         poke = FormularioPokemon()
@@ -54,4 +40,4 @@ class FormularioPokemonView(HttpRequest):
 
     def detalle_pokemon(request, pokemon_id):
         detalle_poke=pokemon.objects.get(id=pokemon_id)
-        return render(request, 'PokemonIndex.html', {'pokemon':detalle_poke})
+        return render(request, 'PokemonIndex.html', {'detalle':detalle_poke})

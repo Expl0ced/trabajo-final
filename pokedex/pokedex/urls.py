@@ -29,7 +29,7 @@ urlpatterns = [
     path('guardartrainer', FormularioPokemonView.procesar_formulario_trainer, name='guardartrainer'),
     path('ListaPokemon/', FormularioPokemonView.listar_pokemon, name='ListaPokemon'),
     # path('ListaPokemon/PokemonIndex/<int:id>',FormularioPokemonView.listar_pokemon, name='PokemonIndex'),
-    path('detalle_pokemon/(?P<pokemon_id>\d+)/$', FormularioPokemonView.detalle_pokemon, name='detalle_pokemon'),
+    path('ListaPokemon/detalle_pokemon/<int:pokemon_id>', FormularioPokemonView.detalle_pokemon, name='detalle_pokemon'),
     path('trainers/', FormularioPokemonView.listar_trainers, name='trainers')
 
 ]

@@ -7,7 +7,7 @@
             <div class="col-md-4"></div>
                 <table class="table table-striped">
                     <thead>
-                        <tr>
+                        <tr class="table-primary">
                             <th scope="col">ID</th> 
                             <th scope="col">Nombre</th>
                             <th scope="col">Numero de pokedex</th>
@@ -19,12 +19,12 @@
                     <tbody>
                         {% if pokemon %}
                         {% for poke in pokemon %}
-                        <tr>
+                        <tr class="table-active">
                             <td>
                                 {{poke.id}}
                             </td>
                             <td>
-                                <a href="">{{poke.Nombre}}</a>
+                                <a href="detalle_pokemon/{{poke.id}}">{{poke.Nombre}}</a>
                             </td>
                             <td>
                                 {{poke.Numero_Pokedex}}

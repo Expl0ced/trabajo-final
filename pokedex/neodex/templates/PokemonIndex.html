@@ -1,11 +1,21 @@
 {% extends 'index.html' %}
 
-{% block title %}Detalle pokemon {% endblock %}
+{% block title %}Detalle pokemon{% endblock %}
 
 {% block content %}
-{% for i in pokemon %}
-Nombre del Pokemon: {{i.nombre}}
-ID del pokemon: {{i.id}}
 
-{% endfor %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4" color="primary">
+                {% load static %}
+                <img src="{% get_static_prefix %}pokeimg/{{ detalle.id }}.jpg" alt="{{detalle.Nombre}}">
+        </div>
+        <div class="col-4">
+            <p>Nombre del Pokemon: {{detalle.Nombre}}</p>
+            <p>ID del pokemon: {{detalle.id}}</p>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+</div>
 {% endblock %}
