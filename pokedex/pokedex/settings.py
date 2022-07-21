@@ -125,6 +125,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/ListaPokemon/detalle_pokemon/static/pokeimg/',
+    '/ListaPokemon/detalle_pokemon/static/background/',
 ]
 
 # Default primary key field type
