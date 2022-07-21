@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from apps.neodex.HomeVIew import HomeView
-from apps.neodex.views import FormularioPokemonView
+from neodex.HomeVIew import HomeView
+from neodex.views import FormularioPokemonView
 
 urlpatterns = [
     # path("neodex/", include('neodex.urls')),  
@@ -24,10 +24,12 @@ urlpatterns = [
     path('',HomeView.home, name='home'),
     path('pagina1/',HomeView.pagina1, name='pagina1'),
     path('pagina2/<int:parametro1>',HomeView.pagina2, name='pagina2'),
-    path('pagina3/<int:parametro1>/<int:parametro2>',HomeView.pagina3, name='pagina3'),
     path('formulario/', HomeView.formulario, name='formulario'),
-    path('ListaPokemon/', HomeView.listapoke, name='ListaPokemon'),
-    path('prototipo/', HomeView.nosexd, name='prototipo'),
-    path('trainers/', FormularioPokemonView, name='trainers')
+    path('registrarTrainer/', FormularioPokemonView.formulario_trainer, name='registrarTrainer'),
+    path('guardartrainer', FormularioPokemonView.procesar_formulario_trainer, name='guardartrainer'),
+    path('ListaPokemon/', FormularioPokemonView.listar_pokemon, name='ListaPokemon'),
+    # path('ListaPokemon/PokemonIndex/<int:id>',FormularioPokemonView.listar_pokemon, name='PokemonIndex'),
+    path('detalle_pokemon/(?P<pokemon_id>\d+)/$', FormularioPokemonView.detalle_pokemon, name='detalle_pokemon'),
+    path('trainers/', FormularioPokemonView.listar_trainers, name='trainers')
 
 ]

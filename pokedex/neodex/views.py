@@ -2,7 +2,7 @@ from webbrowser import get
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.template.loader import get_template
-from pokedex.neodex.forms import FormularioPokemon
+from neodex.forms import FormularioPokemon
 from .models import pokemon, Trainer
 
 # Create your views here.
@@ -33,7 +33,7 @@ class FormularioPokemonView(HttpRequest):
             poke=FormularioPokemon()
         return render(request, "PokemonIndex.html", {"form":poke, "mensaje":'ok'})
 
-    def formulario_alumno(request):
+    def formulario_trainer(request):
         trainer=FormularioPokemon()
         return render(request, 'formulario.html', {"formulario":trainer})
 
@@ -51,3 +51,7 @@ class FormularioPokemonView(HttpRequest):
     def listar_trainers(request):
         trainers=Trainer.objects.all()
         return render(request, 'trainers.html', {"entrenador":trainers})
+
+    def detalle_pokemon(request, pokemon_id):
+        detalle_poke=pokemon.objects.get(id=pokemon_id)
+        return render(request, 'PokemonIndex.html', {'pokemon':detalle_poke})

@@ -23,7 +23,7 @@ class HomeView():
         return HttpResponse(plantilla.render())
 
     def listapoke(self):
-        plantilla=get_template('ListaPokemon.html')
+        plantilla=get_template('    .html')
         return HttpResponse(plantilla.render())
 
     def nosexd(self):

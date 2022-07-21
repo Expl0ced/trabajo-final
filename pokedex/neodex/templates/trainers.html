@@ -1,34 +1,65 @@
 {% extends 'index.html' %}
 
-{% block head %}
-<link rel="stylesheet" href="static/css/bootstrap.css">
-{% endblock %}
-
 {% block content %}
-
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    Lista
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if trainers %}
-            {% for t in entrenador %}
-            <tr>
-                <td>
-                    {{t.first_name}}
-                </td>
-            </tr>
-            {% endfor %}
-            {% else %}
-            <h1>No hay registros</h1>
-            {% endif %}
-        </tbody>
-    </table>
+    <div class="container"></div>
+        <div class="row"></div>
+            <div class="col-md-4"></div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Equipo</th>
+                            <th scope="col">Pokemon 1</th>
+                            <th scope="col">Pokemon 2</th>
+                            <th scope="col">Pokemon 3</th>
+                            <th scope="col">Pokemon 4</th>
+                            <th scope="col">Pokemon 5</th>
+                            <th scope="col">Pokemon 6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if entrenador %}
+                        {% for t in entrenador %}
+                        <tr>
+                            <td>
+                                {{t.first_name}}
+                            </td>
+                            <td>
+                                {{t.last_name}}
+                            </td>
+                            <td>
+                                {{t.team}}
+                            </td>
+                            <td>
+                                {{t.pokemon_1}}
+                            </td>
+                            <td>
+                                {{t.pokemon_2}}
+                            </td>
+                            <td>
+                                {{t.pokemon_3}}
+                            </td>
+                            <td>
+                                {{t.pokemon_4}}
+                            </td>
+                            <td>
+                                {{t.pokemon_5}}
+                            </td>
+                            <td>
+                                {{t.pokemon_6}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <h1>No hay registros</h1>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 
 

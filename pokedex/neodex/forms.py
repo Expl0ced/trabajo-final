@@ -5,4 +5,3 @@ class FormularioPokemon(forms.ModelForm):
     class Meta:
         model = Trainer
         fields = '__all__'
-        widgets = {'fist_name': forms.CharField(attrs={'type':'char'})}

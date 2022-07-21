@@ -1,33 +1,53 @@
 {% extends 'index.html' %}
-{% block head %}
-<link rel="stylesheet" href="static/css/bootstrap.css">
-{% endblock %}
+
 {% block title %}Lista Pokemon{% endblock %}
 {% block content %}
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Numero Pokedex</th>
-            <th scope="col">Clasificacion</th>
-            <th scope="col">Tipo 1</th>
-            <th scope="col">Tipo 2</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for poke in pokemon %}
-            <td scope="row">{{poke.Nombre}}</th>
-            <td scope="row">{{poke.Numero_Pokedex}}</th>
-            <td scope="row">{{poke.Clasificacion}}</th>
-            <td scope="row">{{poke.Tipo_1}}</th>
-            <td scope="row">{{poke.Tipo_2}}</th>
-
-        {% endfor %}
-        <tr>
-            <th scope="row"></th>
-        </tr>
-    </tbody>
-</table>
+<div class="container"></div>
+        <div class="row"></div>
+            <div class="col-md-4"></div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th> 
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Numero de pokedex</th>
+                            <th scope="col">Clasificacion</th>
+                            <th scope="col">Tipo 1</th>
+                            <th scope="col">Tipo 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if pokemon %}
+                        {% for poke in pokemon %}
+                        <tr>
+                            <td>
+                                {{poke.id}}
+                            </td>
+                            <td>
+                                <a href="">{{poke.Nombre}}</a>
+                            </td>
+                            <td>
+                                {{poke.Numero_Pokedex}}
+                            </td>
+                            <td>
+                                {{poke.Clasificacion}}
+                            </td>
+                            <td>
+                                {{poke.Tipo_1}}
+                            </td>
+                            <td>
+                                {{poke.Tipo_2}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <h1>No hay registros</h1>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}
