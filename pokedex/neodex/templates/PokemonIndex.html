@@ -3,54 +3,39 @@
 {% block title %}Detalle pokemon{% endblock %}
 
 {% block content %}
-
+{% load static %}
 <div class="container-fluid" style="background-image: url(static/background/background.jpg)">
     <div class="row">
         <div class="col-4" color="primary">
-                {% load static %}
                 <img src="{% get_static_prefix %}pokeimg/{{ detalle.id }}.jpg" alt="{{detalle.Nombre}}">
         </div>
         <div class="col-4">
-            <p>Nombre del Pokemon: {{detalle.Nombre}}</p>
-            <p>ID del pokemon: {{detalle.id}}</p>
+            <div class="row">
+                <span class="badge text-bg-info"><h2>Nombre del Pokemon:         {{detalle.Nombre}}</h2></span><br>
+            </div>
+            <div class="row">
+                <span class="badge text-bg-info"><h2>Puntos de Salud:            {{detalle.PS}}</h2></span><br>
+            </div>
+            <div class="row">
+                <span class="badge text-bg-info"><h2>Puntos de Ataque:           {{detalle.Ataque}}</h2></span><br>
+            </div>
+            <div class="row">
+                <span class="badge text-bg-info"><h2>Puntos de Defensa:          {{detalle.Defensa}}</h2></span><br>
+            </div>
+            <div class="row">
+                <span class="badge text-bg-info"><h2>Puntos de Ataque_Especial:  {{detalle.Ataque_Especial}}</h2></span><br>
+            </div>
+            <div class="row">
+                <span class="badge text-bg-info"><h2>Puntos de Defensa_Especial: {{detalle.Defensa_Especial}}</h2></span><br>
+            </div>
+            <div class="row">
+                <span class="badge text-bg-info"><h2>Puntos de Velocidad:        {{detalle.Velocidad}}</h2></span><br>
+            </div>
         </div>
         <div class="col-4">
-            <div class="container-fluid">
-                <canvas id="myChart"></canvas>
-            </div>
-            <script type="text/javascript">
-                $(document).ready(function(){
-
-                    $.ajax({
-                    url:'pokedex/pokedex.csv',
-                    dataType:'text',
-                    contentType:'charset=utf-8'
-                    }).done(grafica);
-
-                    function grafica(data)
-                    {
-                    console.log(data);
-                    
-                        const config = {
-                            type: 'radar',
-                            data: data,
-                            options: {
-                                responsive: true,
-                                plugins: {
-                                    title: {
-                                        display: true,
-                                        text: 'Chart.js Radar Chart'
-                                    }
-                                }
-                            },
-                        };
-                    }
-                }
                 
-
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </div>
     </div>
 </div>
+
 {% endblock %}

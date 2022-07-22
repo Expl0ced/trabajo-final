@@ -126,6 +126,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/ListaPokemon/detalle_pokemon/static/pokeimg/',
     '/ListaPokemon/detalle_pokemon/static/background/',
+    '\ListaPokemon\detalle_pokemon\static\background\background.jpg',
 ]
 
 # Default primary key field type
