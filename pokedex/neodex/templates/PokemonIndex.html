@@ -7,7 +7,29 @@
 <div class="container-fluid" style="background-image: url(static/background/background.jpg)">
     <div class="row">
         <div class="col-4" color="primary">
+            <div class="card">
                 <img src="{% get_static_prefix %}pokeimg/{{ detalle.id }}.jpg" alt="{{detalle.Nombre}}">
+            </div>
+            <div class="cointainer-fluid">
+                <div class="row">
+                    <div class="col-2">
+                        <span>
+                            <p>
+                                Clasificacion: 
+                            </p>
+                        </span>    
+                    </div>
+                    <div class="col-5">
+                        <span>
+                            <p>
+                                {{ detalle.Clasificacion }}
+                            </p>
+                        </span>
+                    </div>
+                </div>
+                    
+            </div>
+                
         </div>
         <div class="col-4">
             <div class="row">
@@ -33,9 +55,9 @@
             </div>
         </div>
         <div class="col-4">
-            <img src="{% get_static_prefix %}region/{{ detalle.Generacion }}.png" alt="{{detalle.Generacion}}">
-            {% if detalle.id == 1 %}
-            {% endif %}
+            <div class="card">
+                <img src="{% get_static_prefix %}region/{{ detalle.Generacion }}.png" alt="{{detalle.Generacion}}">
+            </div>
             <span></span>
         </div>
     </div>
