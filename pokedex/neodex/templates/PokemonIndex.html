@@ -10,33 +10,34 @@
             <div class="card">
                 <img src="{% get_static_prefix %}pokeimg/{{ detalle.id }}.jpg" alt="{{detalle.Nombre}}">
             </div>
-            <div class="container">
-                <img src="{% get_static_prefix %}pokeimg/{{ detalle.id }}.jpg" alt="{{detalle.Nombre}}">
-                <img src="{% get_static_prefix %}pokeimg/{{ detalle.id }}.jpg" alt="{{detalle.Nombre}}">
-            </div>
-            <div class="cointainer-fluid">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2">
-                        <span>
-                            <p>
-                                Clasificacion: 
-                            </p>
-                        </span>    
+                    <div class="col-5">
+                        <span><p>Tipos Elementales</p></span>
                     </div>
                     <div class="col-5">
-                        <span>
-                            <p>
-                                {{ detalle.Clasificacion }}
-                            </p>
-                        </span>
+                        <img src="{% get_static_prefix %}types/{{ detalle.Tipo_1 }}.gif" alt="{{detalle.Nombre}}">
+                        <img src="{% get_static_prefix %}types/{{ detalle.Tipo_2 }}.gif" alt="{{detalle.Nombre}}">
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-5">
+                        <span><p>Clasificacion </p></span>    
+                    </div>
+                    <div class="col-5">
+                        <span><p>{{ detalle.Clasificacion }}</p></span>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-2">
-
+                    <div class="col-5">
+                        <span><p>Altura</span></p>
+                        <span><p>Peso</span></p>
                     </div>
                     <div class="col-5">
-
+                        <span><p> {{ detalle.Altura }}m </p></span>
+                        <span><p> {{ detalle.Peso }}kg </p></span>
                     </div>
                 </div>
                     
@@ -44,31 +45,89 @@
                 
         </div>
         <div class="col-4">
-            <div class="row">
-                <span class="badge text-bg-info"><h2>Nombre del Pokemon:         {{detalle.Nombre}}</h2></span><br>
+            <div>
+                <canvas id="myChart"></canvas>
             </div>
-            <div class="row">
-                <span class="badge text-bg-info"><h2>Puntos de Salud:            {{detalle.PS}}</h2></span><br>
-            </div>
-            <div class="row">
-                <span class="badge text-bg-info"><h2>Puntos de Ataque:           {{detalle.Ataque}}</h2></span><br>
-            </div>
-            <div class="row">
-                <span class="badge text-bg-info"><h2>Puntos de Defensa:          {{detalle.Defensa}}</h2></span><br>
-            </div>
-            <div class="row">
-                <span class="badge text-bg-info"><h2>Puntos de Ataque_Especial:  {{detalle.Ataque_Especial}}</h2></span><br>
-            </div>
-            <div class="row">
-                <span class="badge text-bg-info"><h2>Puntos de Defensa_Especial: {{detalle.Defensa_Especial}}</h2></span><br>
-            </div>
-            <div class="row">
-                <span class="badge text-bg-info"><h2>Puntos de Velocidad:        {{detalle.Velocidad}}</h2></span><br>
-            </div>
+            <script>
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['PS', 'Ataque', 'Defensa', 'Ataque_Especial', 'Defensa_Especial', 'Velocidad'],
+                        datasets: [{
+                            label: 'Estadisticas Base',
+                            data: [{{detalle.PS}}, {{detalle.Ataque}}, {{detalle.Defensa}} ,{{detalle.Ataque_Especial}}, {{detalle.Defensa_Especial}}, {{detalle.Velocidad}}],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'   
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                </script>
+                <div class="container-fluid">
+                    
+                </div>
         </div>
         <div class="col-4">
             <div class="card">
                 <img src="{% get_static_prefix %}region/{{ detalle.Generacion }}.png" alt="{{detalle.Generacion}}">
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-5">
+                        <span><p>Region:</p></span>
+                    </div>
+                    <div class="col-5">
+                        {% if detalle.Generacion == 1.0 %}
+                            <span><p>Kanto</p></span>
+                        {% else %}
+                            {% if detalle.Generacion == 2.0 %}
+                                <span><p>Johto</p></span>
+                            {% else %}
+                                {% if detalle.Generacion == 3.0 %}
+                                    <span><p>Hoenn</p></span>
+                                {% else %}
+                                    {% if detalle.Generacion == 4.0 %}
+                                        <span><p>Sinnoh</p></span>
+                                    {% else %}
+                                        {% if detalle.Generacion == 5.0 %}
+                                            <span><p>Teselia/Unova</p></span>
+                                        {% else %}
+                                            {% if detalle.Generacion == 6.0 %}
+                                                <span><p>Kalos</p></span>
+                                            {% else %}
+                                                {% if detalle.Generacion == 7.0 %}
+                                                    <span><p>Alola</p></span>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
             </div>
             <span></span>
         </div>
