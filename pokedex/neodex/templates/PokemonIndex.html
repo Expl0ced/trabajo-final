@@ -33,7 +33,10 @@
             </div>
         </div>
         <div class="col-4">
-                
+            <img src="{% get_static_prefix %}region/{{ detalle.Generacion }}.png" alt="{{detalle.Generacion}}">
+            {% if detalle.id == 1 %}
+            {% endif %}
+            <span></span>
         </div>
     </div>
 </div>
