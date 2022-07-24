@@ -16,8 +16,14 @@
                         <span><p>Tipos Elementales</p></span>
                     </div>
                     <div class="col-5">
-                        <img src="{% get_static_prefix %}types/{{ detalle.Tipo_1 }}.gif" alt="{{detalle.Nombre}}">
-                        <img src="{% get_static_prefix %}types/{{ detalle.Tipo_2 }}.gif" alt="{{detalle.Nombre}}">
+                        {% if detalle.Tipo_1 %}
+                            <img src="{% get_static_prefix %}types/{{ detalle.Tipo_1 }}.gif" alt="{{detalle.Tipo_1}}">
+                            {% if detalle.Tipo_2 == '-' %}
+                            {% else %}
+                                <img src="{% get_static_prefix %}types/{{ detalle.Tipo_2 }}.gif" alt="{{detalle.Tipo_2}}">
+                            {% endif %}
+                        {% endif %}
+                        
                     </div>
                 </div>
             </div>
@@ -94,8 +100,8 @@
                         <div class="col-4"></div>
                     </div>
                     <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4">   
+                        <div class="col-3"></div>
+                        <div class="col-5">
                             {% if detalle.Contra_Bicho == 2 %}
                                 <img src="{% get_static_prefix %}types/Bicho.gif" alt="Bicho">
                             {% endif %}
@@ -103,52 +109,184 @@
                                 <img src="{% get_static_prefix %}types/Siniestro.gif" alt="Siniestro">
                             {% endif %}
                             {% if detalle.Contra_Dragon == 2 %}
-                                <img src="{% get_static_prefix %}types/Dragón.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Dragon.gif" alt="Dragon">
                             {% endif %}
                             {% if detalle.Contra_Electrico == 2 %}
-                                <img src="{% get_static_prefix %}types/Electrico.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Electrico.gif" alt="Electrico">
                             {% endif %}
                             {% if detalle.Contra_Hada == 2 %}
-                                <img src="{% get_static_prefix %}types/Hada.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Hada.gif" alt="Hada">
                             {% endif %}
                             {% if detalle.Contra_Lucha == 2 %}
-                                <img src="{% get_static_prefix %}types/Lucha.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Lucha.gif" alt="Lucha">
                             {% endif %}
                             {% if detalle.Contra_Fuego == 2 %}
-                                <img src="{% get_static_prefix %}types/Fuego.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Fuego.gif" alt="Fuego">
                             {% endif %}
                             {% if detalle.Contra_Volador == 2 %}
-                                <img src="{% get_static_prefix %}types/Volador.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Volador.gif" alt="Volador">
                             {% endif %}
                             {% if detalle.Contra_Fantasma == 2 %}
-                                <img src="{% get_static_prefix %}types/Fantasma.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Fantasma.gif" alt="Fantasma">
                             {% endif %}
                             {% if detalle.Contra_Planta == 2 %}
-                                <img src="{% get_static_prefix %}types/Planta.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Planta.gif" alt="Planta">
                             {% endif %}
                             {% if detalle.Contra_Tierra == 2 %}
-                                <img src="{% get_static_prefix %}types/Planta.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Tierra.gif" alt="Tierra">
                             {% endif %}
                             {% if detalle.Contra_Hielo == 2 %}
-                                <img src="{% get_static_prefix %}types/Hielo.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Hielo.gif" alt="Hielo">
                             {% endif %}
                             {% if detalle.Contra_Normal == 2 %}
-                                <img src="{% get_static_prefix %}types/Normal.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Normal.gif" alt="Normal">
                             {% endif %}
                             {% if detalle.Contra_Veneno == 2 %}
-                                <img src="{% get_static_prefix %}types/Veneno.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Veneno.gif" alt="Veneno">
                             {% endif %}
                             {% if detalle.Contra_Psiquico == 2 %}
-                                <img src="{% get_static_prefix %}types/Psiquico.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Psiquico.gif" alt="Psiquico">
                             {% endif %}
                             {% if detalle.Contra_Roca == 2 %}
-                                <img src="{% get_static_prefix %}types/Roca.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Roca.gif" alt="Roca">
                             {% endif %}
                             {% if detalle.Contra_Acero == 2 %}
-                                <img src="{% get_static_prefix %}types/Acero.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Acero.gif" alt="Acero">
                             {% endif %}
                             {% if detalle.Contra_Agua == 2 %}
-                                <img src="{% get_static_prefix %}types/Agua.gif" alt="Siniestro">
+                                <img src="{% get_static_prefix %}types/Agua.gif" alt="Agua">
+                            {% endif %}
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <span><p>Debilidades x4</p></span>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-5">
+                            {% if detalle.Contra_Bicho == 4 %}
+                                <img src="{% get_static_prefix %}types/Bicho.gif" alt="Bicho">
+                            {% endif %}
+                            {% if detalle.Contra_Siniestro == 4 %}
+                                <img src="{% get_static_prefix %}types/Siniestro.gif" alt="Siniestro">
+                            {% endif %}
+                            {% if detalle.Contra_Dragon == 4 %}
+                                <img src="{% get_static_prefix %}types/Dragon.gif" alt="Dragon">
+                            {% endif %}
+                            {% if detalle.Contra_Electrico == 4 %}
+                                <img src="{% get_static_prefix %}types/Electrico.gif" alt="Electrico">
+                            {% endif %}
+                            {% if detalle.Contra_Hada == 4 %}
+                                <img src="{% get_static_prefix %}types/Hada.gif" alt="Hada">
+                            {% endif %}
+                            {% if detalle.Contra_Lucha == 4 %}
+                                <img src="{% get_static_prefix %}types/Lucha.gif" alt="Lucha">
+                            {% endif %}
+                            {% if detalle.Contra_Fuego == 4 %}
+                                <img src="{% get_static_prefix %}types/Fuego.gif" alt="Fuego">
+                            {% endif %}
+                            {% if detalle.Contra_Volador == 4 %}
+                                <img src="{% get_static_prefix %}types/Volador.gif" alt="Volador">
+                            {% endif %}
+                            {% if detalle.Contra_Fantasma == 4 %}
+                                <img src="{% get_static_prefix %}types/Fantasma.gif" alt="Fantasma">
+                            {% endif %}
+                            {% if detalle.Contra_Planta == 4 %}
+                                <img src="{% get_static_prefix %}types/Planta.gif" alt="Planta">
+                            {% endif %}
+                            {% if detalle.Contra_Tierra == 4 %}
+                                <img src="{% get_static_prefix %}types/Tierra.gif" alt="Tierra">
+                            {% endif %}
+                            {% if detalle.Contra_Hielo == 4 %}
+                                <img src="{% get_static_prefix %}types/Hielo.gif" alt="Hielo">
+                            {% endif %}
+                            {% if detalle.Contra_Normal == 4 %}
+                                <img src="{% get_static_prefix %}types/Normal.gif" alt="Normal">
+                            {% endif %}
+                            {% if detalle.Contra_Veneno == 4 %}
+                                <img src="{% get_static_prefix %}types/Veneno.gif" alt="Veneno">
+                            {% endif %}
+                            {% if detalle.Contra_Psiquico == 4 %}
+                                <img src="{% get_static_prefix %}types/Psiquico.gif" alt="Psiquico">
+                            {% endif %}
+                            {% if detalle.Contra_Roca == 4 %}
+                                <img src="{% get_static_prefix %}types/Roca.gif" alt="Roca">
+                            {% endif %}
+                            {% if detalle.Contra_Acero == 4 %}
+                                <img src="{% get_static_prefix %}types/Acero.gif" alt="Acero">
+                            {% endif %}
+                            {% if detalle.Contra_Agua == 4 %}
+                                <img src="{% get_static_prefix %}types/Agua.gif" alt="Agua">
+                            {% endif %}
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">Fortalezas</div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-5">
+                            {% if detalle.Contra_Bicho == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Bicho.gif" alt="Bicho">
+                            {% endif %}
+                            {% if detalle.Contra_Siniestro == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Siniestro.gif" alt="Siniestro">
+                            {% endif %}
+                            {% if detalle.Contra_Dragon == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Dragon.gif" alt="Dragon">
+                            {% endif %}
+                            {% if detalle.Contra_Electrico == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Electrico.gif" alt="Electrico">
+                            {% endif %}
+                            {% if detalle.Contra_Hada == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Hada.gif" alt="Hada">
+                            {% endif %}
+                            {% if detalle.Contra_Lucha == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Lucha.gif" alt="Lucha">
+                            {% endif %}
+                            {% if detalle.Contra_Fuego == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Fuego.gif" alt="Fuego">
+                            {% endif %}
+                            {% if detalle.Contra_Volador == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Volador.gif" alt="Volador">
+                            {% endif %}
+                            {% if detalle.Contra_Fantasma == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Fantasma.gif" alt="Fantasma">
+                            {% endif %}
+                            {% if detalle.Contra_Planta == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Planta.gif" alt="Planta">
+                            {% endif %}
+                            {% if detalle.Contra_Tierra == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Tierra.gif" alt="Tierra">
+                            {% endif %}
+                            {% if detalle.Contra_Hielo == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Hielo.gif" alt="Hielo">
+                            {% endif %}
+                            {% if detalle.Contra_Normal == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Normal.gif" alt="Normal">
+                            {% endif %}
+                            {% if detalle.Contra_Veneno == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Veneno.gif" alt="Veneno">
+                            {% endif %}
+                            {% if detalle.Contra_Psiquico == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Psiquico.gif" alt="Psiquico">
+                            {% endif %}
+                            {% if detalle.Contra_Roca == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Roca.gif" alt="Roca">
+                            {% endif %}
+                            {% if detalle.Contra_Acero == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Acero.gif" alt="Acero">
+                            {% endif %}
+                            {% if detalle.Contra_Agua == 0.5 %}
+                                <img src="{% get_static_prefix %}types/Agua.gif" alt="Agua">
                             {% endif %}
                         </div>
                         <div class="col-4"></div>
