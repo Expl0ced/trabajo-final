@@ -20,7 +20,7 @@
                         {% if pokemon %}
                         {% for poke in pokemon %}
                         <tr class="table-active">
-                            <td>
+                            <td >
                                 {{poke.id}}
                             </td>
                             <td>
@@ -36,7 +36,12 @@
                                 {{poke.Tipo_1}}
                             </td>
                             <td>
+                                {% if poke.Tipo_2 == '-' %}
+                                <p></p>
+                                {% else %}
                                 {{poke.Tipo_2}}
+                                {% endif %}
+                                
                             </td>
                         </tr>
                         {% endfor %}
