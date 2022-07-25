@@ -1,35 +1,24 @@
 from webbrowser import get
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import get_template
-from neodex.forms import FormularioPokemon
+from neodex.forms import FormularioTrainer
 from .models import pokemon, Trainer
+from django.core.paginator import Paginator, EmptyPage
 
 # Create your views here.
 class FormularioPokemonView(HttpRequest):
-    def index(request):
-        poke = FormularioPokemon()
-        return render(request, "PokemonIndex.html", {"form":poke})
-
-
-    def procesar_formulario(request):
-        poke=FormularioPokemon()
-        if poke.is_valid():
-            poke.save()
-            poke=FormularioPokemon()
-        return render(request, "PokemonIndex.html", {"form":poke, "mensaje":'ok'})
-
-    def formulario_trainer(request):
-        trainer=FormularioPokemon()
-        return render(request, 'formulario.html', {"formulario":trainer})
-
     def procesar_formulario_trainer(request):
-        trainer=(FormularioPokemon())
-        if trainer.is_valid():
-            trainer.save()
-            trainer=FormularioPokemon()
-        return render(request, 'formulario.html', {"formulario":trainer, "mensaje":'ok'})
-
+        poke=pokemon.objects.all()
+        if request.method=='POST':
+            form=FormularioTrainer(request.POST)
+            if form.is_valid():
+                print(form)
+                form.save()
+            return render(request, 'formulario.html', {'form':form, 'pokemon':poke})
+        else:
+            form=FormularioTrainer()
+            return render(request, 'formulario.html', {'form':form, 'pokemon':poke})
     def listar_pokemon(request):
         poke=pokemon.objects.all()
         return render(request, 'ListaPokemon.html',{"pokemon":poke})
@@ -41,3 +30,9 @@ class FormularioPokemonView(HttpRequest):
     def detalle_pokemon(request, pokemon_id):
         detalle_poke=pokemon.objects.get(id=pokemon_id)
         return render(request, 'PokemonIndex.html', {'detalle':detalle_poke})
+
+    def borrar_trainer(request, id_trainer):
+        trainer=Trainer.objects.get(pk=id_trainer)
+        trainer.delete()
+        trainer=Trainer.objects.all()
+        return render(request, "trainers.html", {'entrenador':trainer})

@@ -17,6 +17,7 @@
                             <th scope="col">Pokemon 4</th>
                             <th scope="col">Pokemon 5</th>
                             <th scope="col">Pokemon 6</th>
+                            <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,10 @@
                             </td>
                             <td>
                                 {{t.pokemon_6}}
+                            </td>
+                            <td>
+                                <!-- <a class="btn btn-danger" href="eliminar_trainers/{{t.id}}">Eliminar</a> -->
+                                <a class="btn btn-danger" href="{% url 'eliminar_trainers' t.id %}">Eliminar</a>
                             </td>
                         </tr>
                         {% endfor %}

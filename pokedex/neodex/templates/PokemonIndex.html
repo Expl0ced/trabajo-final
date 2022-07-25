@@ -5,6 +5,9 @@
 {% block content %}
 {% load static %}
 <div class="container-fluid" style="background-image: url(static/background/background.jpg)">
+    <div class="container-fluid">
+        <h1>#{{detalle.Numero_Pokedex}}: {{detalle.Nombre}}</h1>
+    </div>
     <div class="row">
         <div class="col-4" color="primary">
                 <img src="{% get_static_prefix %}pokeimg/{{ detalle.id }}.jpg" alt="{{detalle.Nombre}}">
@@ -300,35 +303,57 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-5">
-                        <span><p>Region:</p></span>
+                        <div class="row"><span><p>Region:</p></span></div>
+                        <div class="row"><span><p>Caracteristica:</p></span></div>
+                        <div class="row"><span><p>Basada originalmente en:</p></span></div>
+                        
                     </div>
                     <div class="col-5">
                         {% if detalle.Generacion == 1.0 %}
-                            <span><p>Kanto</p></span>
+                            <div class="row"><span><p>Kanto</p></span></div>
+                            <div class="row"><span><p>La gran mayoría de las ciudades tiene nombres de colores.</p></span></div>
+                            <div class="row"><span><p>La region del mismo nombre, Kanto, en la cual se encuenta la capital, Tokio</p></span></div>
                         {% else %}
                             {% if detalle.Generacion == 2.0 %}
-                                <span><p>Johto</p></span>
+                                <div class="row"><span><p>Johto</p></span></div>
+                                <div class="row"><span><p>Los nombres de las ciudades son nombres de plantas o están relacionados con plantas.</p></span></div>      
+                                <div class="row"><span><p>La region de Kansai, en la cual se encuentran ciudadades como Osaka y Kioto</p></span></div>                      
                             {% else %}
                                 {% if detalle.Generacion == 3.0 %}
-                                    <span><p>Hoenn</p></span>
+                                    <div class="row"><span><p>Hoenn</p></span></div>
+                                    <div class="row"><span><p>Too much water</p></span></div>
+                                    <div class="row"><span><p>Esta basada en la isla de Kyūshū, al sur de Japon</p></span></div>
                                 {% else %}
                                     {% if detalle.Generacion == 4.0 %}
-                                        <span><p>Sinnoh</p></span>
+                                        <div class="row"><span><p>Sinnoh</p></span></div>
+                                        <div class="row"><span><p>la primera region en tener un personaje femenino como campeon</p></span></div>
+                                        <div class="row"><span><p>Basada en la isla de Hokkaidō, al norte de Japon y tambien parte de las islas Rusas Sajalín y Kunashir</p></span></div>
+                                        
                                     {% else %}
                                         {% if detalle.Generacion == 5.0 %}
-                                            <span><p>Teselia/Unova</p></span>
+                                            <div class="row"><span><p>Teselia/Unova</p></span></div>
+                                            <div class="row"><span><p>Es la primera Region que no esta basada en Japon</p></span></div>
+                                            <div class="row"><span><p>La region esta basada en la ciudad de New York y sus alrededores</p></span></div>
                                         {% else %}
                                             {% if detalle.Generacion == 6.0 %}
-                                                <span><p>Kalos</p></span>
+                                                <div class="row"><span><p>Kalos</p></span></div>
+                                                <div class="row"><span><p>Esta basada norte de Francia</p></span></div>
+                                                <div class="row"><span><p>El nombre de la region proviene de la palabra griega "κάλλος"(Kallós, pronunciado con una sola L), que significa belleza</p></span></div>
                                             {% else %}
                                                 {% if detalle.Generacion == 7.0 %}
-                                                    <span><p>Alola</p></span>
+                                                    <div class="row"><span><p>Alola</p></span></div>
+                                                    <div class="row"><span><p>El nombre esta inspirado en el saludo Hawaiano Aloha.</p></span></div>
+                                                    <div class="row"><span><p>Basada en el Archipiélago de Hawái</p></span></div>
+                                                    
                                                 {% endif %}
                                             {% endif %}
                                         {% endif %}
                                     {% endif %}
                                 {% endif %}
                             {% endif %}
+                        {% endif %}
+                        {% if detalle.id == 1 %}
+                            
                         {% endif %}
                     </div>
                 </div>

@@ -1,57 +1,229 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    {% if form.errors %}
-        <div class="alert alert-danger" role="alert">
-            this is a danger alert-check it out!
-        </div>
-    {% endif %}
 
-    <h1>Registro de Entrenadores</h1>
-    <form action="guardartrainer" method="POST">
-        {% csrf_token %}
-        {% if mensaje %}
-            <div class="alert alert-success" role="alert">
-                <h1>Entrenador registrado exitosamente</h1>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"><h1>Registro de Entrenadores</h1></div>
+                <div class="col-4"></div>
             </div>
-        {% endif %}
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <p class="h5">Guia de seleccion</p>
+                            <div class="form-group">
+                                <label for="inputAddress2">Pokemon de Kanto</label>
+                                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                                    <option value="">------</option>
+                                        {% if pokemon %}
+                                            {% for poke in pokemon %}
+                                                {% if poke.Generacion == 1 %}
+                                                    <option value="{{ poke.Nombre }}">
+                                                        <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                                                    </option>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                </select>
+                                    <label for="inputAddress2">Pokemon de Johto</label>
+                                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                                    <option value="">------</option>
+                                    {% if pokemon %}
+                                        {% for poke in pokemon %}
+                                            {% if poke.Generacion == 2 %}
+                                                <option value="{{ poke.Nombre }}">
+                                                    <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                                                </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                <label for="inputAddress2">Pokemon de Hoenn</label>
+                                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                                    <option value="">------</option>
+                                    {% if pokemon %}
+                                        {% for poke in pokemon %}
+                                            {% if poke.Generacion == 3 %}
+                                                <option value="{{ poke.Nombre }}">
+                                                    <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                                                </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                <label for="inputAddress2">Pokemon de Sinnioh</label>
+                                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                                    <option value="">------</option>
+                                    {% if pokemon %}
+                                        {% for poke in pokemon %}
+                                            {% if poke.Generacion == 4 %}
+                                            <option value="{{ poke.Nombre }}">
+                                                <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                                            </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                <label for="inputAddress2">Pokemon de Teselia</label>
+                                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                                    <option value="">------</option>
+                                    {% if pokemon %}
+                                        {% for poke in pokemon %}
+                                            {% if poke.Generacion == 5 %}
+                                                <option value="{{ poke.Nombre }}">
+                                                    <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                                                </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                <label for="inputAddress2">Pokemon de Kalos</label>
+                                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                                    <option value="">------</option>
+                                    {% if pokemon %}
+                                        {% for poke in pokemon %}
+                                            {% if poke.Generacion == 6 %}
+                                                <option value="{{ poke.Nombre }}">
+                                                    <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                                                </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                <label for="inputAddress2">Pokemon de Alola</label>
+                                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                                    <option value="">------</option>
+                                    {% if pokemon %}
+                                        {% for poke in pokemon %}
+                                            {% if poke.Generacion == 7 %}
+                                                <option value="{{ poke.Nombre }}">
+                                                    <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                                                </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                        </div>
 
-        {{ form }}
-            <div class="form-row">
+
+
+                        </div>
+                        <div class="col-4"></div>
+
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        
+            
+        </div>
+
+        <!-- {{ form }}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <label for="formGroupExampleInput">Nombre</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre" name="first_name">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <label for="formGroupExampleInput">Apellido</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Apellido" name="last_name">
                 </div>  
             </div>
             <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="formGroupExampleInput">Equipo</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Equipo" name="team">
             </div>
             <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-            <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                <label for="inputAddress2">Pokemon 1</label>
+                <select name="pokemon_2" id="pokemonm_1" class="form-control form-control-lg">
+                    {% if pokemon %}
+                        {% for poke in pokemon %}
+                            <option value="{{ poke.Nombre }}">
+                                <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                            </option>
+                        {% endfor %}
+                    {% else %}
+                        <option>no muestra</option>
+                    {% endif %}
+                </select> 
+                <label for="inputAddress2">Pokemon 2</label>
+                <select name="pokemon_2" id="pokemon_2" class="form-control form-control-lg">
+                    {% if pokemon %}
+                        {% for poke in pokemon %}
+                            <option value="{{ poke.Nombre }}">
+                                <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                            </option>
+                        {% endfor %}
+                    {% else %}
+                        <option>no muestra</option>
+                    {% endif %}
                 </select>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
-            </div>
+                <label for="inputAddress2">Pokemon 3</label>
+                <select name="pokemon_3" id="pokemon_3" class="form-control form-control-lg">
+                    {% if pokemon %}
+                        {% for poke in pokemon %}
+                            <option value="{{ poke.Nombre }}">
+                                <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                            </option>
+                        {% endfor %}
+                    {% else %}
+                        <option>no muestra</option>
+                    {% endif %}
+                </select>
+                <label for="inputAddress2">Pokemon 4</label>
+                <select name="pokemon_4" id="pokemon_4" class="form-control form-control-lg">
+                    {% if pokemon %}
+                        {% for poke in pokemon %}
+                            <option value="{{ poke.Nombre }}">
+                                <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                            </option>
+                        {% endfor %}
+                    {% else %}
+                        <option>no muestra</option>
+                    {% endif %}
+                </select>
+                <label for="inputAddress2">Pokemon 5</label>
+                <select name="pokemon_5" id="pokemon_5" class="form-control form-control-lg">
+                    {% if pokemon %}
+                        {% for poke in pokemon %}
+                            <option value="{{ poke.Nombre }}">
+                                <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                            </option>
+                        {% endfor %}
+                    {% else %}
+                        <option>no muestra</option>
+                    {% endif %}
+                </select>
+                <label for="inputAddress2">Pokemon 6</label>
+                <select name="pokemon_6" id="pokemon_6" class="form-control form-control-lg">
+                    {% if pokemon %}
+                        {% for poke in pokemon %}
+                            <option value="{{ poke.Nombre }}">
+                                <span><p>{{ poke.id }}: {{ poke.Nombre }}</p></span>
+                            </option>
+                        {% endfor %}
+                    {% else %}
+                        <option>no muestra</option>
+                    {% endif %}
+                </select>
+            </div> 
             <div class="form-group">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -61,8 +233,23 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            
 
-    </form>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div> -->
+            
+
+    <!-- </form> -->
 
 {% endblock %}  

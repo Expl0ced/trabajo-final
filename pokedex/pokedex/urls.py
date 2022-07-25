@@ -22,14 +22,10 @@ urlpatterns = [
     # path("neodex/", include('neodex.urls')),  
     path('admin/', admin.site.urls),
     path('',HomeView.home, name='home'),
-    path('pagina1/',HomeView.pagina1, name='pagina1'),
-    path('pagina2/<int:parametro1>',HomeView.pagina2, name='pagina2'),
-    path('formulario/', HomeView.formulario, name='formulario'),
-    path('registrarTrainer/', FormularioPokemonView.formulario_trainer, name='registrarTrainer'),
-    path('guardartrainer', FormularioPokemonView.procesar_formulario_trainer, name='guardartrainer'),
+    path('formulario/', FormularioPokemonView.procesar_formulario_trainer, name='formulario'),
     path('ListaPokemon/', FormularioPokemonView.listar_pokemon, name='ListaPokemon'),
-    # path('ListaPokemon/PokemonIndex/<int:id>',FormularioPokemonView.listar_pokemon, name='PokemonIndex'),
     path('ListaPokemon/detalle_pokemon/<int:pokemon_id>', FormularioPokemonView.detalle_pokemon, name='detalle_pokemon'),
-    path('trainers/', FormularioPokemonView.listar_trainers, name='trainers')
+    path('trainers/', FormularioPokemonView.listar_trainers, name='trainers'),
+    path('trainers/eliminar_trainers/<int:id_trainer>', FormularioPokemonView.borrar_trainer, name='eliminar_trainers')
 
 ]
