@@ -1,7 +1,5 @@
-from webbrowser import get
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, redirect
-from django.template.loader import get_template
+from django.shortcuts import render
 from neodex.forms import FormularioTrainer
 from .models import pokemon, Trainer
 
