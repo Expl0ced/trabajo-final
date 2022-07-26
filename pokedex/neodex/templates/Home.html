@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<div style="background-color: #e24f4f ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <center>
+                    <p class="h1 text-justify font-weight-bold">Bienvenido</p>
+                    <p class="h2 text-justify font-weight-bold">un proyecto de fans para fans</p>
+                </center>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4" >
+                <img src="{% get_static_prefix %}background/Poké_Ball.png" class="img-fluid" alt="Responsive image">
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <p class="text-justify font-weight-bold">en este proyecto se encuentran listados hasta el pokemon 801, Magearna. En los perfiles de cada pokemon se encontraran su numero de pokedex, su clasificacion, peso, altura, region de procedencia, debilidades y fortalezas</p>
+                <p class="text-justify font-weight-bold">junto con un formulario de ingreso de entrenadores, para aquellos que quieran insertar, ya sea a ellos mismos o alguien mas</p>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <p class="text-justify font-weight-bold">el proyecto fue realizado con:</p>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <a href="https://www.djangoproject.com/"><img src="{% get_static_prefix %}background/django.png" alt="Responsive image" class="img-fluid"></a>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+                <p class="text-justify font-weight-bold">Usando los Framework de Estilo y Graficos:</p>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <center>
+                            <a href="https://getbootstrap.com/"><img src="{% get_static_prefix %}background/bootstrap-Logo.jpg" alt="Responsive image" class="img-fluid"></a>
+                        </center>
+                        </div>
+                    <div class="col-4"></div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <a href="https://www.chartjs.org/"><img src="{% get_static_prefix %}background/Chartjs.png" alt="Responsive image" class="img-fluid"></a>
+                    </div>
+                    <div class="col-4"></div>
+                    
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

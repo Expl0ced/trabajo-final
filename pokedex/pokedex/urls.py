@@ -21,7 +21,7 @@ from neodex.views import FormularioPokemonView
 urlpatterns = [
     # path("neodex/", include('neodex.urls')),  
     path('admin/', admin.site.urls),
-    path('',HomeView.home, name='home'),
+    path('Home',FormularioPokemonView.home, name='Home'),
     path('formulario/', FormularioPokemonView.procesar_formulario_trainer, name='formulario'),
     path('ListaPokemon/', FormularioPokemonView.listar_pokemon, name='ListaPokemon'),
     path('ListaPokemon/detalle_pokemon/<int:pokemon_id>', FormularioPokemonView.detalle_pokemon, name='detalle_pokemon'),

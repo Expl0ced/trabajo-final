@@ -4,10 +4,13 @@ from django.shortcuts import render, redirect
 from django.template.loader import get_template
 from neodex.forms import FormularioTrainer
 from .models import pokemon, Trainer
-from django.core.paginator import Paginator, EmptyPage
 
 # Create your views here.
 class FormularioPokemonView(HttpRequest):
+
+    def home(request):
+        return render(request, 'Home.html')
+
     def procesar_formulario_trainer(request):
         poke=pokemon.objects.all()
         if request.method=='POST':
